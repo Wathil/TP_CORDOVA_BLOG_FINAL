@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+    <!-- <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"> -->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <meta name="color-scheme" content="light dark">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Contact</title>
+</head>
+
+<body>
+
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color: #56baed;">
+        <div class="container-fluid">
+            <a class="navbar-brand border border-white rounded" style="padding: 5px;" href="home.html">AirTag News</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link" aria-current="page" href="home.html">Accueil</a>
+                    <a class="nav-link" href="blog.html">Blog</a>
+                    <a class="nav-link" href="informations.html">Informations</a>
+                    <a class="nav-link active" href="contact.html">Contact</a>
+                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Inscription</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="row" style="height: 100px;">
+    </div>
+
+    <div class="container">
+        <div class="text-center">
+            <h1 class="display-5 fw-bold">Contact</h1>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-7 mx-auto">
+                <div class="card mt-2 mx-auto p-4 bg white">
+                    <div class="card-body">
+                        <div class="container">
+                            <form id="contact-form" role="form">
+                                <div class="controls">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="form_name">Prénom *</label>
+                                                <input id="form_name" type="text" name="name" class="form-control" required="required" data-error="Le prénom est obligatoire.">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="form_lastname">Nom *</label>
+                                                <input id="form_lastname" type="text" name="surname" class="form-control" required="required" data-error="Le nom est obligatoire.">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row"><p></p></div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="form_email">Email *</label>
+                                                <input id="form_email" type="email" name="email" class="form-control" required="required" data-error="L'email est obligatoire.">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="form_need">Au sujet de *</label>
+                                                <select id="form_need" name="need" class="form-control" required="required" data-error="Quels sont vos besoin?">
+                                                    <option value="" selected disabled>--Choisissez--</option>
+                                                    <option>Demande d'information</option>
+                                                    <option>Déposer une plainte</option>
+                                                    <option>Clamer des compliments</option>
+                                                    <option>Autre</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row"><p></p></div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="form_message">Message *</label>
+                                                <textarea id="form_message" name="message" class="form-control" rows="4" required="required" data-error="Le message est obligatoire.">
+                                                </textarea>
+                                            </div>
+                                        </div>
+                                        <div class="row"><p></p></div>
+                                        <div class="col-md-12">
+                                            <input type="submit" class="btn btn-outline-primary btn-sm" type="button" value="Send Message">
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="cordova.js"></script>
+    <script src="js/jquery-3.6.0.js"></script>
+    <script src="js/bootstrap.js"></script>
+
+</body>
+
+</html>
