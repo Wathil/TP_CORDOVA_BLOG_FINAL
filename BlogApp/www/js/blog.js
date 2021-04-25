@@ -33,19 +33,32 @@ let cl = console.log;
 
 $(function () {
     manager.displayArticles();
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 20) {
+            $("#myBtn").fadeIn();
+        } else {
+            $("#myBtn").fadeOut();
+        }
+    });
 });
 
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+
 var manager = {
-    displayArticles: function() {
+    displayArticles: function () {
         $.ajax({
             url: "http://localhost:5557/articles/", // browser
             //url: "http://10.0.2.2:5557/articles/", // emulate android
             type: "GET",
             cache: false,
             dataType: "json",
-            success: function(articles) {
+            success: function (articles) {
                 let startElement = $("#start-element"); // main container
-                $.each(articles, function(index, article) {
+                $.each(articles, function (index, article) {
                     var html = '<div class="row" id="article">';
                     html += '<div class="col">';
                     html += '<div class="row bg-white g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">';
@@ -64,7 +77,7 @@ var manager = {
             }
         });
     },
-    showArticle: function(id) {
+    showArticle: function (id) {
         alert(id);
     }
 };
