@@ -3,6 +3,14 @@
 BlogApp: Cordova app
 json-server: contient le fichier articles.json
 
+Commandes CORDOVA :
+cordova platform add android --save // Ne marche pas
+cordova plugin add cordova-plugin-device
+cordova platform add browser
+
+cordova run // OK
+cordova emulate android // Ne marche pas
+
 Pour lancer le server json: 
 dans le répertoire json-server:
 json-server -p 5557 articles.json
@@ -20,3 +28,4 @@ cordova emulate android
 page de démarrage: login.html
 login: a
 password: b
+

@@ -30,6 +30,7 @@
 let cl = console.log;
 
 document.addEventListener("deviceready", onDeviceReady, false);
+
 function onDeviceReady() {
     cl("device.cordova" + device.cordova)
     $("#device-cordova").append(device.cordova);

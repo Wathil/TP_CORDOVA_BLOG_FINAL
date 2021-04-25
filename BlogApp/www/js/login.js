@@ -29,17 +29,17 @@ function onDeviceReady() {
 }
 
 let cl = console.log;
-let loginok = {login: "a", password: "b"};
+let loginok = { login: "a", password: "b" };
 
 var manager = {
-    login: function() {
+    login: function () {
         let entry = this.collectFieldsValues();
         if (entry.login == loginok.login && entry.password == loginok.password)
             document.location.replace("home.html");
         else
             alert("Bad credentials !");
     },
-    collectFieldsValues: function() {
+    collectFieldsValues: function () {
         return {
             login: $('#login').val(),
             password: $('#password').val(),

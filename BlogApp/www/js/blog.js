@@ -19,25 +19,29 @@
 
 // Wait for the deviceready event before using any of Cordova's device APIs.
 // See https://cordova.apache.org/docs/en/latest/cordova/events/events.html#deviceready
-document.addEventListener('deviceready', onDeviceReady, false);
 
-var system;
+let cl = console.log;document.addEventListener('deviceready', onDeviceReady, false);
+
+var baseUrl = "http://localhost:5557/articles/";
+
+document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
     // Cordova is now initialized. Have fun!
     console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
-    document.getElementById('deviceready').classList.add('ready');
+    if (device.platform == "Android") {
+        baseUrl = "http://10.0.2.2:5557/articles/";
+    }
+    cl("baseUrl=" + baseUrl);
 }
-
-let cl = console.log;
 
 $(function () {
     manager.displayArticles();
     $(window).scroll(function() {
         if ($(this).scrollTop() > 20) {
-            $("#myBtn").fadeIn();
+            $("#btnBack").fadeIn();
         } else {
-            $("#myBtn").fadeOut();
+            $("#btnBack").fadeOut();
         }
     });
 });
@@ -48,11 +52,16 @@ function topFunction() {
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
 
+function backFunction() {
+    $("#detail").hide();
+    $("#btnBlog").hide();
+    $("#start-element").show();
+}
+
 var manager = {
     displayArticles: function () {
         $.ajax({
-            url: "http://localhost:5557/articles/", // browser
-            //url: "http://10.0.2.2:5557/articles/", // emulate android
+            url: baseUrl,
             type: "GET",
             cache: false,
             dataType: "json",
@@ -78,6 +87,22 @@ var manager = {
         });
     },
     showArticle: function (id) {
-        alert(id);
+        $("#start-element").hide();
+        $.ajax({
+            url: baseUrl + id,
+            type: "GET",
+            cache: false,
+            dataType: "json",
+            success: function (article) {
+                $("#img1").attr("src", article.urlPhotoDetail1);
+                $("#img2").attr("src", article.urlPhotoDetail2);
+                $("#img3").attr("src", article.urlPhotoDetail3);
+                $('#libelle').text(article.libelle);
+                $('#description1').text(article.description1);
+                $('#description2').text(article.description2);
+            }
+        });
+        $("#detail").show();
+        $("#btnBlog").show();
     }
 };

@@ -37,13 +37,16 @@
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
     <meta name="color-scheme" content="light dark">
     <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/blog.css">
     <title>Blog</title>
 </head>
 
 <body>
 
-    <button class="btn btn-outline-primary btn-lg" type="button" onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+    <button class="btn btn-outline-primary btn-lg" type="button" onclick="topFunction()" id="btnBack" title="Go to top">Top</button>
+
+    <button class="btn btn-outline-primary btn-lg" type="button" onclick="backFunction()" id="btnBlog" title="Return to blog">Retour</button>
 
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color: #56baed;">
         <div class="container-fluid">
@@ -71,12 +74,57 @@
 
     </main>
 
-    <main class="container" id="detail" hidden>
+    <main class="container" id="detail">
 
         <div class="row" style="height: 100px;">
         </div>
 
-
+        <div class="row">
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col">
+                        <h1 id="libelle"></h1>
+                    </div>
+                </div>
+                <p></p>
+                <div class="row">
+                    <div class="col">
+                        <h2 id="description1"></h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="" id="img1" class="d-block w-100" alt="">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="" id="img2" class="d-block w-100" alt="">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="" id="img3" class="d-block w-100" alt="">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
+                        data-bs-slide="prev">
+                        <span class="fa fa-chevron-left fa-lg" style="color:black;"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade"
+                        data-bs-slide="next">
+                        <span class="fa fa-chevron-right fa-lg" style="color:black;"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <p></p>
+        <div class="row">
+            <div class="col">
+                <div id="description2"></div>
+            </div>
+        </div>
 
     </main>
 
